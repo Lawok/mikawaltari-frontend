@@ -1,0 +1,13 @@
+@import '../variables/colors.scss';
+
+// Main
+$background: $white;
+$text: $dark-gray;
+$negative-text: $white;
+
+// Pattern
+$pattern-background: $dark-gray;
+$pattern-circle: $white;
+$pattern-line: $white;
+$pattern-fail: $red;
+$pattern-success: $green;

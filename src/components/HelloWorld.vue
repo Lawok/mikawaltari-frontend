@@ -1,7 +1,7 @@
 <template>
 
   <div class="hello">
-    <PatternLock />
+    <PatternLock @on-draw="handleOnDraw($event)"/>
     <h1>{{ msg }}</h1>
     <p>
       For a guide and recipes on how to configure / customize this project,<br>
@@ -42,6 +42,12 @@ export default {
   },
   props: {
     msg: String
+  },
+  methods: {
+    handleOnDraw(pattern) {
+      // eslint-disable-next-line no-console
+      console.log('pattern sent', pattern);
+    }
   }
 }
 </script>
