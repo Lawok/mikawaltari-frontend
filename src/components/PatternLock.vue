@@ -1,5 +1,5 @@
 <template>
-  <div id="pattern-lock" />
+  <div id="pattern-lock" :class="{ 'is-error': isError, 'is-success': isSuccess }" class="patt-holder" />
 </template>
 
 <script>
@@ -8,11 +8,16 @@ import PatternLock from 'patternlock';
 export default {
   name: 'PatternLock',
   props: {
-    msg: String
+    isError: Boolean,
+    isSuccess: Boolean
+  },
+  data() {
+    return {
+      patternLock: null,
+    }
   },
   mounted() {
-    // eslint-disable-next-line no-unused-vars
-    const patternLock = new PatternLock('#pattern-lock', {
+    this.patternLock = new PatternLock('#pattern-lock', {
       onDraw: pattern => {
         this.$emit('on-draw', pattern);
       }
@@ -24,15 +29,19 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/app';
 
+$background-transition: background-color .5s ease-in-out;
+$border-transition: border-color .5s ease-in-out;
+
 .patt-holder::v-deep {
   background: $pattern-background;
 
   .patt-dots {
+    transition: $background-transition;
     background: $pattern-circle;
   }
 
   .patt-circ {
-    transition: background-color .5s ease-in-out, border-color .5s ease-in-out;
+    transition: $background-transition, $border-transition;
     background-color: $pattern-background;
     border: 3px solid $pattern-background;
 
@@ -43,7 +52,30 @@ export default {
   }
 
   .patt-lines {
+    transition: $background-transition;
     background: rgba($pattern-line, 0.3);
+  }
+
+  &.is-error {
+    .patt-circ.hovered {
+      border-color: $pattern-fail;
+      background-color: rgba($pattern-fail, 0.1);
+    }
+
+    .patt-lines {
+      background: rgba($pattern-fail, 0.3);
+    }
+  }
+
+  &.is-success {
+    .patt-circ.hovered {
+      border-color: $pattern-success;
+      background-color: rgba($pattern-success, 0.1);
+    }
+
+    .patt-lines {
+      background: rgba($pattern-success, 0.3);
+    }
   }
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div class="patternlock-container">
-    <PatternLock @on-draw="checkPattern($event)"/>
+    <PatternLock :is-error="isError" :is-success="isSuccess" @on-draw="checkPattern($event)"/>
   </div>
 </template>
 
@@ -12,10 +12,27 @@ export default {
   components: {
     PatternLock,
   },
+  data() {
+    return {
+      isError: false,
+      isSuccess: false,
+    }
+  },
   methods: {
     checkPattern(pattern) {
-      // eslint-disable-next-line no-console
-      console.log('pattern sent', pattern);
+      const testPattern = '7415369';
+      if (pattern === testPattern) {
+        this.isSuccess = true;
+        this.login();
+      } else {
+        this.isError = true;
+      }
+    },
+    login() {
+      // Start route change on next tick so transitions play in children
+      this.$nextTick(() => {
+        this.$router.push({ name: 'mainpage' });
+      });
     }
   }
 }

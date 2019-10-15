@@ -1,4 +1,5 @@
 import Login from '../components/Login';
+import MainPage from '../components/MainPage';
 
 const routes = [
   {
@@ -12,6 +13,11 @@ const routes = [
     name: 'login',
     component: Login,
   },
+  {
+    path: '/mainpage',
+    name: 'mainpage',
+    component: MainPage,
+  }
 ];
 
 export default routes;
