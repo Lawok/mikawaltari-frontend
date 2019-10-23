@@ -1,6 +1,9 @@
 <template>
   <div class="mainpage">
-    Mainpage
+    <div v-for="route in routes" :key="route.routeName">
+      {{ route.label }}
+    </div>
+    <component :is="childComponent"></component>
   </div>
 </template>
 
@@ -10,9 +13,15 @@ export default {
   name: 'MainPage',
   components: {
   },
+  props: ['childComponent'],
   data() {
     return {
-      
+      routes: [
+        { label: 'Nyt', routeName: 'news' },
+        { label: 'Kirjat', routeName: 'books' },
+        { label: 'Arvostelut', routeName: 'reviews' },
+        { label: 'Jäsenluettelo', routeName: 'users' },
+      ]
     }
   },
   methods: {
