@@ -27,7 +27,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/app';
+@import '../../styles/app';
 
 $background-transition: background-color .5s ease-in-out;
 $border-transition: border-color .5s ease-in-out;

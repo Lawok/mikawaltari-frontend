@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import PatternLock from './PatternLock';
+import PatternLock from '../common/PatternLock';
 
 export default {
   name: 'Login',
@@ -39,7 +39,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/app';
+@import '../../styles/app';
 
 .patternlock-container {
   display: flex;

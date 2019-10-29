@@ -1,9 +1,9 @@
-import Login from '../components/Login';
-import MainPage from '../components/MainPage';
-import NewsPage from '../components/NewsPage';
-import BooksPage from '../components/BooksPage';
-import ReviewsPage from '../components/ReviewsPage';
-import UsersPage from '../components/UsersPage';
+import Login from '../components/routes/Login';
+import MainPage from '../components/routes/MainPage';
+import NewsPage from '../components/routes/NewsPage';
+import BooksPage from '../components/routes/BooksPage';
+import ReviewsPage from '../components/routes/ReviewsPage';
+import UsersPage from '../components/routes/UsersPage';
 
 const routes = [
   {

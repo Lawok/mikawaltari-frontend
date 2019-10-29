@@ -1,13 +1,13 @@
 <template>
-  <div class="users">
-    Users
+  <div class="news">
+    News
   </div>
 </template>
 
 <script>
 
 export default {
-  name: 'UsersPage',
+  name: 'NewsPage',
   components: {
   },
   data() {
@@ -20,5 +20,5 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/app';
+@import '../../styles/app';
 </style>

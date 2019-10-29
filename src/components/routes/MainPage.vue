@@ -30,7 +30,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '../styles/app';
+@import '../../styles/app';
 
 .mainpage {
   display: flex;
