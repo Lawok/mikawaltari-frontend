@@ -9,7 +9,7 @@
 </template>
 
 <script>
-import { getUsers } from '../../axios/users';
+import { getUsers } from '../../api/users';
 
 export default {
   name: 'UsersPage',

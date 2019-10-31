@@ -1,19 +1,17 @@
 <template>
   <div class="books">
-    <ul>
-      <li v-for="book in books" :key="book.id">
-        {{ book.title }}
-      </li>
-    </ul>
+    <book-list :books="books" />
   </div>
 </template>
 
 <script>
-import { getBooks } from '../../axios/books';
+import { getBooks } from '../../api/books';
+import BookList from '../common/BookList';
 
 export default {
   name: 'BooksPage',
   components: {
+    BookList
   },
   data() {
     return {

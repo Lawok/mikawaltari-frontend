@@ -1,7 +1,9 @@
 <template>
   <div class="mainpage">
-    <div v-for="route in routes" :key="route.routeName">
-      {{ route.label }}
+    <div class="navigation">
+      <div v-for="route in routes" :key="route.routeName">
+        {{ route.label }}
+      </div>
     </div>
     <component :is="childComponent"></component>
   </div>
@@ -35,6 +37,13 @@ export default {
 .mainpage {
   display: flex;
   flex: 1;
+  flex-direction: column;
   background-color: $background;
+}
+
+.navigation {
+  display:flex;
+  flex-direction: row;
+  margin-bottom: 36px;
 }
 </style>
