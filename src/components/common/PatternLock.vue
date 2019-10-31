@@ -1,15 +1,24 @@
 <template>
-  <div id="pattern-lock" :class="{ 'is-error': isError, 'is-success': isSuccess }" class="patt-holder" />
+  <div
+    v-click-outside="resetPattern"
+    id="pattern-lock"
+    :class="{ 'is-error': isError, 'is-success': isSuccess }"
+    class="patt-holder"
+  />
 </template>
 
 <script>
 import PatternLock from 'patternlock';
+import ClickOutside from '../../directives/ClickOutside';
 
 export default {
   name: 'PatternLock',
   props: {
     isError: Boolean,
     isSuccess: Boolean
+  },
+  directives: {
+    ClickOutside
   },
   data() {
     return {
@@ -20,8 +29,17 @@ export default {
     this.patternLock = new PatternLock('#pattern-lock', {
       onDraw: pattern => {
         this.$emit('on-draw', pattern);
+        setTimeout(this.resetPattern, 1000);
       }
     });
+  },
+  methods: {
+    resetPattern() {
+      if (!this.isSuccess) {
+        this.patternLock.reset();
+        this.$emit('on-reset');
+      }
+    },
   }
 }
 </script>
