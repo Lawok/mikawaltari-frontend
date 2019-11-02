@@ -1,0 +1,3 @@
+@mixin sm-and-down {
+  @media (max-width: 900px) { @content; }
+}

@@ -1,19 +1,19 @@
 <template>
   <div class="mainpage">
-    <div class="navigation">
-      <div v-for="route in routes" :key="route.routeName">
-        {{ route.label }}
-      </div>
-    </div>
-    <component :is="childComponent"></component>
+    <navigation :routes="routes" />
+    <transition name="fade" mode="out-in">
+      <component :is="childComponent"></component>
+    </transition>
   </div>
 </template>
 
 <script>
+import Navigation from '../common/Navigation';
 
 export default {
   name: 'MainPage',
   components: {
+    Navigation
   },
   props: ['childComponent'],
   data() {
@@ -39,11 +39,20 @@ export default {
   flex: 1;
   flex-direction: column;
   background-color: $background;
+  margin-top: $navigation-height-lg;
+
+  @include sm-and-down {
+    margin-top: $navigation-height-sm;
+  }
 }
 
-.navigation {
-  display:flex;
-  flex-direction: row;
-  margin-bottom: 36px;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity .3s;
+}
+
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>

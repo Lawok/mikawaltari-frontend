@@ -1,5 +1,7 @@
 @import './globals/reset.scss';
 @import './themes/default.scss';
+@import './variables/variables.scss';
+@import './mixins/breakpoints.scss';
 
 body {
   font-family: 'Artifika', 'Times New Roman', serif;
