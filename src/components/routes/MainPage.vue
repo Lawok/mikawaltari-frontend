@@ -41,7 +41,7 @@ export default {
   background-color: $background;
   margin-top: $navigation-height-lg;
 
-  @include sm-and-down {
+  @include small-screen {
     margin-top: $navigation-height-sm;
   }
 }

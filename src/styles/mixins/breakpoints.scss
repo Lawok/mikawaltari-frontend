@@ -1,3 +1,14 @@
-@mixin sm-and-down {
-  @media (max-width: 900px) { @content; }
+$small-screen: 900px;
+
+@mixin small-screen {
+  @media (max-width: $small-screen) { @content; }
+}
+
+@mixin large-screen {
+  @media (min-width: $small-screen + 1px) { @content; }
+}
+
+// Export variable to be used in components
+:export {
+  smallScreen: $small-screen;
 }
