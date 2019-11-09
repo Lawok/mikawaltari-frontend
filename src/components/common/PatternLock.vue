@@ -15,7 +15,11 @@ export default {
   name: 'PatternLock',
   props: {
     isError: Boolean,
-    isSuccess: Boolean
+    isSuccess: Boolean,
+    callResetOnSuccess: {
+      type: Boolean,
+      default: false
+    }
   },
   directives: {
     ClickOutside
@@ -35,7 +39,7 @@ export default {
   },
   methods: {
     resetPattern() {
-      if (!this.isSuccess) {
+      if (!this.isSuccess || this.callResetOnSuccess) {
         this.patternLock.reset();
         this.$emit('on-reset');
       }

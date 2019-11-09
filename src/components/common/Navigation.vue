@@ -4,14 +4,16 @@
       <swiper ref="swiper" :options="swiperOptions">
         <swiper-slide class="route-slide">
           <div class="top-bar" />
-          <div
-            v-for="route in routes"
-            :key="route.routeName"
-            class="navigation-item"
-            :class="{ active: isActiveRoute(route.routeName) }"
-            @click="navigate(route.routeName)"
-          >
-            {{ route.label }}
+          <div class="route-container">
+            <div
+              v-for="route in routes"
+              :key="route.routeName"
+              class="navigation-item"
+              :class="{ active: isActiveRoute(route.routeName) }"
+              @click="navigate(route.routeName)"
+            >
+              {{ route.label }}
+            </div>
           </div>
           <img
             class="swiper-handle"
@@ -73,7 +75,7 @@ export default {
         initialSlide: 1,
         autoHeight: true,
         grabCursor: true,
-        longSwipes: false,
+        longSwipesRatio: 0.2,
         preventInteractionOnTransition: true,
         noSwipingClass: 'no-swiping',
         cssMode: true,
@@ -96,10 +98,9 @@ export default {
     initSwiper() {
       this.swiper = this.$refs.swiper.swiper;
       this.swiper.init();
-      const that = this;
-      this.swiper.on('slideChange', function (something) {
-        that.isMenuActive = that.$refs.swiper.swiper.activeIndex === 0;
-        that.$forceUpdate();
+      this.swiper.on('slideChange', () => {
+        this.isMenuActive = this.$refs.swiper.swiper.activeIndex === 0;
+        this.$forceUpdate();
       });
     },
     navigate(name) {
@@ -248,22 +249,20 @@ $border-highlight-size: 4px;
   @include small-screen {
     height: auto;
     align-items: stretch;
-    justify-content: flex-end;
     background-color: rgba(0, 0, 0, 0);
 
     .navigation-item {
       &:not(img) {
-        height: auto;
-        line-height: initial;
-        border-bottom: 0;
         padding: 0 8px;
-        border-left: $border-highlight-size solid transparent;
       }
-      
-      &:not(img):hover,
-      &.active {
-        border-left-color: $negative-text;
-      }
+    }
+
+    .route-container {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      align-items: center;
+      justify-content: space-evenly;
     }
   }
 }

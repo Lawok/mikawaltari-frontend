@@ -23,6 +23,7 @@ export default {
         { label: 'Kirjat', routeName: 'books' },
         { label: 'Arvostelut', routeName: 'reviews' },
         { label: 'Jäsenluettelo', routeName: 'users' },
+        { label: 'Profiili', routeName: 'profile' },
       ]
     }
   },
@@ -44,15 +45,7 @@ export default {
   @include small-screen {
     margin-top: $navigation-height-sm;
   }
-}
 
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity .3s;
-}
-
-.fade-enter,
-.fade-leave-to {
-  opacity: 0;
+  @include fade(.3s);
 }
 </style>

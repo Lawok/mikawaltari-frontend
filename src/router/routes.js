@@ -1,9 +1,11 @@
 import Login from '../components/routes/Login';
+import Register from '../components/routes/Register';
 import MainPage from '../components/routes/MainPage';
 import NewsPage from '../components/routes/NewsPage';
 import BooksPage from '../components/routes/BooksPage';
 import ReviewsPage from '../components/routes/ReviewsPage';
 import UsersPage from '../components/routes/UsersPage';
+import ProfilePage from '../components/routes/ProfilePage';
 
 const routes = [
   {
@@ -16,6 +18,11 @@ const routes = [
     path: '/login',
     name: 'login',
     component: Login,
+  },
+  {
+    path: '/register',
+    name: 'register',
+    component: Register,
   },
   {
     path: '/mainpage',
@@ -54,6 +61,14 @@ const routes = [
     component: MainPage,
     props: {
       childComponent: UsersPage,
+    }
+  },
+  {
+    path: '/profile',
+    name: 'profile',
+    component: MainPage,
+    props: {
+      childComponent: ProfilePage,
     }
   },
 ];

@@ -3,9 +3,10 @@ import { axiosInstance as axios } from "./axiosConfig";
 const getHost = () => window.location.host === 'localhost:8080' ? 'http://localhost:3001/' : '/';
 
 const errorHandler = error => {
-  // TODO: handle the errors better
-  // eslint-disable-next-line no-console
-  console.warn('Something went wrong, check that your api request is correct', error);
+  // TODO: Make decision if we want to handle errors here
+  // or throw them to components, which means that they
+  // need to have try catch blocks
+  throw new Error(error.response.status);
 }
 
 export const getReq = (endpoint, params) => axios.get(`${getHost()}api/${endpoint}`, params)
