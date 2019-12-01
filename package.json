@@ -13,7 +13,8 @@
     "patternlock": "^2.0.2",
     "vue": "^2.6.10",
     "vue-awesome-swiper": "^3.1.3",
-    "vue-router": "^3.1.3"
+    "vue-router": "^3.1.3",
+    "vuetable-2": "^2.0.0-beta.4"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.11.0",

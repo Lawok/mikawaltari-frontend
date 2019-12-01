@@ -1,22 +1,23 @@
 <template>
   <div class="books">
-    <book-list :books="books" />
+    <basic-table :data="books" :headers="bookHeaders" />
   </div>
 </template>
 
 <script>
 import { getBooks } from '../../api/books';
-import BookList from '../common/BookList';
+import BasicTable from '../common/BasicTable';
 
 export default {
   name: 'BooksPage',
   components: {
-    BookList
+    BasicTable,
   },
   data() {
     return {
       books: [],
-    }
+      bookHeaders: ['author', 'title', 'year', 'rating'],
+    };
   },
   async created() {
     this.books = await getBooks();
@@ -26,4 +27,11 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../styles/app';
+
+.books {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 32px;
+}
 </style>
