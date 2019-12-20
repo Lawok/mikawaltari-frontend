@@ -16,7 +16,7 @@ export default {
   },
   watch: {
     $route(to, from) {
-      if (from.name === 'login') this.transitionName = 'from-login';
+      if (from.name === 'login' || from.name === 'register') this.transitionName = 'from-login';
       else if (to.name === 'login') this.transitionName = 'to-login';
       else this.transitionName = null;
     }

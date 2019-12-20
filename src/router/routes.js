@@ -3,6 +3,7 @@ import Register from '../components/routes/Register';
 import MainPage from '../components/routes/MainPage';
 import NewsPage from '../components/routes/NewsPage';
 import BooksPage from '../components/routes/BooksPage';
+import NewBookPage from '../components/routes/NewBookPage';
 import ReviewsPage from '../components/routes/ReviewsPage';
 import UsersPage from '../components/routes/UsersPage';
 import ProfilePage from '../components/routes/ProfilePage';
@@ -45,6 +46,14 @@ const routes = [
     component: MainPage,
     props: {
       childComponent: BooksPage,
+    }
+  },
+  {
+    path: '/new-book',
+    name: 'new-book',
+    component: MainPage,
+    props: {
+      childComponent: NewBookPage,
     }
   },
   {

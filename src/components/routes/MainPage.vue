@@ -24,6 +24,7 @@ export default {
         { label: 'Arvostelut', routeName: 'reviews' },
         { label: 'Jäsenluettelo', routeName: 'users' },
         { label: 'Profiili', routeName: 'profile' },
+        { label: 'Uusi kirja', routeName: 'new-book', hidden: true },
       ]
     }
   },

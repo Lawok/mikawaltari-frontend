@@ -1,23 +1,38 @@
 <template>
-  <div class="users">
-    <ul>
-      <li v-for="user in users" :key="user.id">
-        {{ user.name }}
-      </li>
-    </ul>
-  </div>
+  <page-body>
+    <basic-table :data="users" :headers="userHeaders" />
+  </page-body>
 </template>
 
 <script>
 import { getUsers } from '../../api/users';
+import PageBody from '../common/PageBody';
+import BasicTable from '../common/BasicTable';
 
 export default {
   name: 'UsersPage',
   components: {
+    PageBody,
+    BasicTable,
   },
   data() {
     return {
-      users: []
+      users: [],
+      userHeaders: [
+        {
+          name: 'username',
+          sortField: 'username',
+          title: 'Nimi',
+        },
+        {
+          name: 'motto',
+          title: 'Motto',
+        },
+        {
+          name: 'favoriteAuthor',
+          title: 'Lempikirjailija',
+        }
+      ]
     }
   },
   async created() {

@@ -1,0 +1,36 @@
+@import './breakpoints.scss';
+
+$spacing: 32px;
+$spacing-sm: 16px;
+
+@mixin margin($option: all) {
+  @if $option == all {
+    margin: $spacing;
+    
+    @include small-screen {
+      margin: $spacing-sm;
+    }
+  } @else {
+    margin-#{$option}: $spacing;
+    
+    @include small-screen {
+      margin-#{$option}: $spacing-sm;
+    }
+  }
+}
+
+@mixin padding($option: all) {
+  @if $option == all {
+    padding: $spacing;
+    
+    @include small-screen {
+      padding: $spacing-sm;
+    }
+  } @else {
+    padding-#{$option}: $spacing;
+    
+    @include small-screen {
+      padding-#{$option}: $spacing-sm;
+    }
+  }
+}

@@ -94,7 +94,6 @@ export default {
     padding: 0 16px;
     border: 0;
     border-bottom: 2px solid $negative-text;
-    font-family: inherit;
     font-size: 18px;
     outline: none;
     letter-spacing: 1px;

@@ -1,14 +1,16 @@
 <template>
-  <div class="news">
+  <page-body>
     News
-  </div>
+  </page-body>
 </template>
 
 <script>
+import PageBody from '../common/PageBody';
 
 export default {
   name: 'NewsPage',
   components: {
+    PageBody
   },
   data() {
     return {

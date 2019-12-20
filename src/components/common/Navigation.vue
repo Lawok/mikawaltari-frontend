@@ -6,7 +6,7 @@
           <div class="top-bar" />
           <div class="route-container">
             <div
-              v-for="route in routes"
+              v-for="route in filteredRoutes"
               :key="route.routeName"
               class="navigation-item"
               :class="{ active: isActiveRoute(route.routeName) }"
@@ -34,10 +34,10 @@
       <img
         class="navigation-item"
         src="../../assets/mw-logo-apng-negative.png"
-        @click="navigate(routes[0].routeName)"
+        @click="navigate(filteredRoutes[0].routeName)"
       />
       <div
-        v-for="route in routes"
+        v-for="route in filteredRoutes"
         :key="route.routeName"
         class="navigation-item"
         :class="{ active: isActiveRoute(route.routeName) }"
@@ -92,6 +92,9 @@ export default {
   computed: {
     activeRoute() {
       return this.routes.find(route => route.routeName === this.$route.name);
+    },
+    filteredRoutes() {
+      return this.routes.filter(route => !route.hidden);
     },
   },
   methods: {
@@ -214,6 +217,7 @@ $border-highlight-size: 4px;
 
 .navigation {
   position: fixed;
+  z-index: 1;
   top: 0;
   left: 0;
   right: 0;

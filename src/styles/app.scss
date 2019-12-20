@@ -1,7 +1,9 @@
 @import './globals/reset.scss';
+@import './globals/tags.scss';
 @import './themes/default.scss';
 @import './variables/variables.scss';
 @import './mixins/breakpoints.scss';
+@import './mixins/spacing.scss';
 @import './mixins/transitions.scss';
 
 body {

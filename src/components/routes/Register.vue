@@ -2,7 +2,7 @@
   <div class="new-user-container">
     <div class="disclaimer-container">
       <transition name="fade" mode="out-in">
-        <div>{{ disclaimerText }}</div>
+        <div :class="{ 'is-error': showDisclaimerAsError }">{{ disclaimerText }}</div>
       </transition>
     </div>
     <div class="username-container">
@@ -81,12 +81,21 @@ export default {
     isPasswordValid() {
       return this.password === this.passwordAgain;
     },
+    showDisclaimerAsError() {
+      return this.stage === STAGE.USERNAME_ERROR ||
+        this.stage === STAGE.PASSWORD_AGAIN_ERROR ||
+        this.stage === STAGE.USERNAME_EXISTS ||
+        this.stage === STAGE.CREATION_ERROR;
+    },
   },
   methods: {
     async createUser() {
       try {
         await addUser({ username: this.username, password: this.password });
-        this.$router.push({ name: 'mainpage' });
+        // Start route change on next tick so transitions play in children
+        this.$nextTick(() => {
+          this.$router.push({ name: 'mainpage' });
+        });
       } catch (err) {
         this.stage = STAGE.USERNAME_EXISTS;
       }

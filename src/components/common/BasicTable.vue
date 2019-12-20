@@ -33,14 +33,28 @@ export default {
 @import '../../styles/app';
 
 .basic-table-container::v-deep {
+  word-break: break-word;
+
   th, td {
     padding: 16px;
     border: 1px solid $negative-background;
+    vertical-align: middle;
+
+    @include small-screen {
+      padding: 8px;
+    }
   }
 
   th {
+    top: $navigation-height-lg - 1px;
+    position: sticky;
     background-color: $negative-background;
     color: $negative-text;
+    white-space: nowrap;
+
+    @include small-screen {
+      top: $navigation-height-sm - 1px;
+    }
   }
 
   td {

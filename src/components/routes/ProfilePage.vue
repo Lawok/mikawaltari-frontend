@@ -1,14 +1,16 @@
 <template>
-  <div class="profile">
+  <page-body>
     Profile
-  </div>
+  </page-body>
 </template>
 
 <script>
+import PageBody from '../common/PageBody';
 
 export default {
   name: 'ProfilePage',
   components: {
+    PageBody
   },
   data() {
     return {
