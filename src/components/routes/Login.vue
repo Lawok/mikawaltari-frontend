@@ -44,8 +44,9 @@ export default {
   methods: {
     async checkPattern(password) {
       try {
-        await login({ username: this.username, password });
+        const { token } = await login({ username: this.username, password });
         this.isSuccess = true;
+        localStorage.setItem('token', token);
         // Start route change on next tick so transitions play in children
         this.$nextTick(() => {
           this.$router.push({ name: 'mainpage' });
@@ -89,6 +90,7 @@ export default {
 
   .username-container > input {
     height: 42px;
+    line-height: 42px;
     background-color: rgba(0, 0, 0, 0);
     color: $negative-text;
     padding: 0 16px;

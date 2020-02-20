@@ -3,7 +3,8 @@
     <vuetable ref="vuetable"
       :api-mode="false"
       :fields="headers"
-      :data="data"
+      :data="{ data }"
+      :data-manager="dataManager"
     ></vuetable>
   </div>
 </template>
@@ -26,6 +27,26 @@ export default {
       default: () => [],
     },
   },
+  methods: {
+    // Todo: sort data in dataManager
+    dataManager(sortOrder) {
+      console.log(sortOrder);
+      if (this.data.length < 1) return;
+
+      let local = this.data;
+
+      // sortOrder can be empty, so we have to check for that as well
+      // if (sortOrder.length > 0) {
+      //   local = _.orderBy(
+      //     local,
+      //     sortOrder[0].sortField,
+      //     sortOrder[0].direction
+      //   );
+      // }
+
+      return { data: local };
+    }
+  }
 }
 </script>
 

@@ -4,7 +4,6 @@ import MainPage from '../components/routes/MainPage';
 import NewsPage from '../components/routes/NewsPage';
 import BooksPage from '../components/routes/BooksPage';
 import NewBookPage from '../components/routes/NewBookPage';
-import ReviewsPage from '../components/routes/ReviewsPage';
 import UsersPage from '../components/routes/UsersPage';
 import ProfilePage from '../components/routes/ProfilePage';
 
@@ -57,14 +56,6 @@ const routes = [
     }
   },
   {
-    path: '/reviews',
-    name: 'reviews',
-    component: MainPage,
-    props: {
-      childComponent: ReviewsPage,
-    }
-  },
-  {
     path: '/users',
     name: 'users',
     component: MainPage,
@@ -80,6 +71,12 @@ const routes = [
       childComponent: ProfilePage,
     }
   },
+  {
+    path: '*',
+    redirect: {
+      name: 'mainpage',
+    }
+  }
 ];
 
 export default routes;

@@ -21,7 +21,6 @@ export default {
       routes: [
         { label: 'Nyt', routeName: 'news' },
         { label: 'Kirjat', routeName: 'books' },
-        { label: 'Arvostelut', routeName: 'reviews' },
         { label: 'Jäsenluettelo', routeName: 'users' },
         { label: 'Profiili', routeName: 'profile' },
         { label: 'Uusi kirja', routeName: 'new-book', hidden: true },
