@@ -1,7 +1,8 @@
 <template>
   <page-body>
     <button @click="navigateToNewBook()">Lisää kirja</button>
-    <basic-table :data="books" :headers="bookHeaders" />
+    <div v-if="isLoading">Ladataan...</div>
+    <basic-table v-else :data="books" :headers="bookHeaders" />
   </page-body>
 </template>
 
@@ -18,6 +19,7 @@ export default {
   },
   data() {
     return {
+      isLoading: true,
       books: [],
       bookHeaders: [
         {
@@ -49,6 +51,7 @@ export default {
       ...book,
       average: this.getBookAverage(book),
     }));
+    this.isLoading = false;
   },
   methods: {
     isNumber(value) {

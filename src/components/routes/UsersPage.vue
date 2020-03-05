@@ -1,6 +1,7 @@
 <template>
   <page-body>
-    <basic-table :data="users" :headers="userHeaders" />
+    <div v-if="isLoading">Ladataan...</div>
+    <basic-table v-else :data="users" :headers="userHeaders" />
   </page-body>
 </template>
 
@@ -17,6 +18,7 @@ export default {
   },
   data() {
     return {
+      isLoading: true,
       users: [],
       userHeaders: [
         {
@@ -37,6 +39,7 @@ export default {
   },
   async created() {
     this.users = await getUsers();
+    this.isLoading = false;
   },
 }
 </script>
