@@ -1,6 +1,6 @@
 <template>
   <page-body>
-    Profile
+    Ei täällä ole mitään nähtävää lol.
   </page-body>
 </template>
 

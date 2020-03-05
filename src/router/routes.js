@@ -1,7 +1,7 @@
 import Login from '../components/routes/Login';
 import Register from '../components/routes/Register';
 import MainPage from '../components/routes/MainPage';
-import NewsPage from '../components/routes/NewsPage';
+import AddReviewPage from '../components/routes/AddReviewPage';
 import BooksPage from '../components/routes/BooksPage';
 import NewBookPage from '../components/routes/NewBookPage';
 import UsersPage from '../components/routes/UsersPage';
@@ -28,15 +28,15 @@ const routes = [
     path: '/mainpage',
     name: 'mainpage',
     redirect: {
-      name: 'news',
+      name: 'add-review',
     }
   },
   {
-    path: '/news',
-    name: 'news',
+    path: '/add-review',
+    name: 'add-review',
     component: MainPage,
     props: {
-      childComponent: NewsPage,
+      childComponent: AddReviewPage,
     }
   },
   {

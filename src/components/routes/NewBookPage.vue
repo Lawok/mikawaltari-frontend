@@ -1,14 +1,22 @@
 <template>
   <page-body class="align-center">
     <form class="new-book-form">
-      <label for="new-book-author">Kirjailija *</label>
-      <input id="new-book-author" v-model="bookForm.author" type="text" required/>
-      <label for="new-book-title">Kirja *</label>
-      <input id="new-book-title" v-model="bookForm.title" type="text" required/>
-      <label for="new-book-year">Julkaisuvuosi *</label>
-      <input id="new-book-year" v-model="bookForm.year" type="number" required/>
-      <label for="new-book-reference-date">Referaatiopäivä</label>
-      <input id="new-book-reference-date" v-model="bookForm.referenceDate" type="date"/>
+      <div class="form-item">
+        <label for="new-book-author">Kirjailija *</label>
+        <input id="new-book-author" v-model="bookForm.author" type="text" required/>
+      </div>
+      <div class="form-item">
+        <label for="new-book-title">Kirja *</label>
+        <input id="new-book-title" v-model="bookForm.title" type="text" required/>
+      </div>
+      <div class="form-item">
+        <label for="new-book-year">Julkaisuvuosi *</label>
+        <input id="new-book-year" v-model="bookForm.year" type="number" required/>
+      </div>
+      <div class="form-item">
+        <label for="new-book-reference-date">Referaatiopäivä</label>
+        <input id="new-book-reference-date" v-model="bookForm.referenceDate" type="date"/>
+      </div>
       <button @click.prevent="add">Lisää</button>
     </form>
   </page-body>
@@ -53,6 +61,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '../../styles/app';
+@import '../../styles/mixins/labeled-input';
 
 .align-center {
   align-items: center;
@@ -62,8 +71,8 @@ export default {
   display: flex;
   flex-direction: column;
 
-  input {
-    margin-bottom: 32px;
+  .form-item {
+    @include labeled-input;
   }
 }
 </style>

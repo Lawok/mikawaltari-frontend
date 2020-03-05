@@ -19,7 +19,7 @@ export default {
   data() {
     return {
       routes: [
-        { label: 'Nyt', routeName: 'news' },
+        { label: 'Lisää arvostelu', routeName: 'add-review' },
         { label: 'Kirjat', routeName: 'books' },
         { label: 'Jäsenluettelo', routeName: 'users' },
         { label: 'Profiili', routeName: 'profile' },

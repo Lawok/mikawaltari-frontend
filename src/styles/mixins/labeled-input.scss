@@ -1,0 +1,9 @@
+@mixin labeled-input() {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+
+  & + & {
+    margin-left: 32px;
+  }
+}
