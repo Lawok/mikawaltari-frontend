@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import { addUser } from '../../api/users';
+import { addUser, login } from '../../api/users';
 import PatternLock from '../common/PatternLock';
 
 const STAGE = {
@@ -92,6 +92,7 @@ export default {
     async createUser() {
       try {
         await addUser({ username: this.username, password: this.password });
+        await login({ usernname: this.username, password: this.password });
         // Start route change on next tick so transitions play in children
         this.$nextTick(() => {
           this.$router.push({ name: 'mainpage' });
