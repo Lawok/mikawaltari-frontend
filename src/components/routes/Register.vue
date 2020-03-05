@@ -92,7 +92,8 @@ export default {
     async createUser() {
       try {
         await addUser({ username: this.username, password: this.password });
-        await login({ usernname: this.username, password: this.password });
+        const { token } = await login({ username: this.username, password: this.password });
+        localStorage.setItem('token', token);
         // Start route change on next tick so transitions play in children
         this.$nextTick(() => {
           this.$router.push({ name: 'mainpage' });
